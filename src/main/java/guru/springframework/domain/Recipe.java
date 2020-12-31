@@ -1,5 +1,6 @@
 package guru.springframework.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -27,10 +28,12 @@ public class Recipe {
 	private Integer cookTime;
 	private Integer servings;
 	private String source;
+	
+	@Lob
 	private String directions;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-	private Set<Ingredient> ingredient;
+	private Set<Ingredient> ingredient = new HashSet<>();
 
 	@Lob
 	private Byte[] image;
@@ -45,7 +48,7 @@ public class Recipe {
 	@JoinTable(name = "recipe_category", 
 	           joinColumns = @JoinColumn(name = "recipe_id"), 
 	           inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private Set<Category> category;
+	private Set<Category> category = new HashSet<>();
 
 	public String getDescription() {
 		return description;
