@@ -4,15 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import guru.springframework.repositories.CategoryRepository;
-import guru.springframework.repositories.UnitOfMeasureRepository;
+//import guru.springframework.repositories.CategoryRepository;
+//import guru.springframework.repositories.UnitOfMeasureRepository;
 import guru.springframework.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 public class IndexController {
 
-	private CategoryRepository categoryRepository;
-	private UnitOfMeasureRepository unitOfMeasureRepository;
+//	private CategoryRepository categoryRepository;
+//	private UnitOfMeasureRepository unitOfMeasureRepository;
 	private final RecipeService recipeService;
 	
 //	public IndexController() {
@@ -41,6 +43,7 @@ public class IndexController {
 //		System.out.println("Cat Id is " + categoryOptional.get().getId());
 //		System.out.println("UOM Id is " + unitOfMeasureOptional.get().getId());
 		
+		log.debug("Getting Index Page in Controller");
 		model.addAttribute("recipes", recipeService.getRecipes());
 		
 		return "index";

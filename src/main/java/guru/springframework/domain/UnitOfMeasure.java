@@ -5,27 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class UnitOfMeasure {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String uomdescription;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUomdescription() {
-		return uomdescription;
-	}
-
-	public void setUomdescription(String uomdescription) {
-		this.uomdescription = uomdescription;
-	}
 }
