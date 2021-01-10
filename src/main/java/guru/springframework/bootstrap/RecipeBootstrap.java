@@ -164,8 +164,12 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 		guacRecipe.addIngredient(
 				new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachUom));
 
-		guacRecipe.getCategory().add(americanCategory);
-		guacRecipe.getCategory().add(mexicanCategory);
+		guacRecipe.getCategories().add(americanCategory);
+		guacRecipe.getCategories().add(mexicanCategory);
+		guacRecipe.setUrl("www.simplyrecipes.com/recipes/perfect_guacomole");
+		guacRecipe.setServings(4);
+		guacRecipe.setSource("Simply Recipes");
+		
 
 		// add to return list
 		recipes.add(guacRecipe);
@@ -231,8 +235,11 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 		tacosRecipe.getIngredient()
 				.add(new Ingredient("lime, cut into wedges", new BigDecimal(4), eachUom, tacosRecipe));
 
-		tacosRecipe.getCategory().add(americanCategory);
-		tacosRecipe.getCategory().add(mexicanCategory);
+		tacosRecipe.getCategories().add(americanCategory);
+		tacosRecipe.getCategories().add(mexicanCategory);
+		tacosRecipe.setUrl("www.simplyrecipes.com/recipes/tacos");
+		tacosRecipe.setServings(45);
+		tacosRecipe.setSource("Tacos Recipes");
 
 		recipes.add(tacosRecipe);
 
