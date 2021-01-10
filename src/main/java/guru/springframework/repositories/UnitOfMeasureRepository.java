@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import guru.springframework.domain.UnitOfMeasure;
 
 public interface UnitOfMeasureRepository extends CrudRepository<UnitOfMeasure, Long> {
-	Optional<UnitOfMeasure>  findByUomdescription(String uomdescription);
+	Optional<UnitOfMeasure> findByUomdescription(String uomdescription);
 }

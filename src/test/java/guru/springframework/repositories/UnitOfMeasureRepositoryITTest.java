@@ -1,6 +1,6 @@
 package guru.springframework.repositories;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Optional;
 
@@ -17,13 +17,13 @@ import guru.springframework.domain.UnitOfMeasure;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 class UnitOfMeasureRepositoryITTest {
-	
+
 	@Autowired
 	UnitOfMeasureRepository unitofMeasureRepository;
-	
+
 	@Before
 	public void setUp() {
-		
+
 	}
 
 	@Test
@@ -32,7 +32,7 @@ class UnitOfMeasureRepositoryITTest {
 		Optional<UnitOfMeasure> uomOptional = unitofMeasureRepository.findByUomdescription("Teaspoon");
 		assertEquals("Teaspoon", uomOptional.get().getUomdescription());
 	}
-	
+
 	@Test
 	void testFindByUomdescriptionCup() {
 		Optional<UnitOfMeasure> uomOptional = unitofMeasureRepository.findByUomdescription("Cup");

@@ -16,12 +16,12 @@ public class IndexController {
 //	private CategoryRepository categoryRepository;
 //	private UnitOfMeasureRepository unitOfMeasureRepository;
 	private final RecipeService recipeService;
-	
+
 //	public IndexController() {
 //		super();
 //		this.recipeService = null;
 //	}
-	
+
 	public IndexController(RecipeService recipeService) {
 		super();
 		this.recipeService = recipeService;
@@ -36,16 +36,16 @@ public class IndexController {
 
 	@RequestMapping({ "", "/", "/index" })
 	public String getIndexPage(Model model) {
-		
+
 //		Optional<Category> categoryOptional = categoryRepository.findByDescription("American");
 //		Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByUomdescription("Teaspoon");
 //		
 //		System.out.println("Cat Id is " + categoryOptional.get().getId());
 //		System.out.println("UOM Id is " + unitOfMeasureOptional.get().getId());
-		
+
 		log.debug("Getting Index Page in Controller");
 		model.addAttribute("recipes", recipeService.getRecipes());
-		
+
 		return "index";
 	}
 }

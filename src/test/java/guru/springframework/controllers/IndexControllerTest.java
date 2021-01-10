@@ -23,13 +23,13 @@ import guru.springframework.domain.Recipe;
 import guru.springframework.services.RecipeService;
 
 public class IndexControllerTest {
-	
+
 	@Mock
 	RecipeService recipeService;
-	
+
 	@Mock
 	Model model;
-	
+
 	IndexController indexController;
 
 	@Before
@@ -43,23 +43,23 @@ public class IndexControllerTest {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
 		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));
 	}
-	
+
 	@org.junit.Test
 	public void testGetIndexPage() {
-		  //given
-        Set<Recipe> recipes = new HashSet<>();
+		// given
+		Set<Recipe> recipes = new HashSet<>();
 //        recipes.add(new Recipe());
 //        recipes.add(new Recipe());
 
-        Recipe recipe = new Recipe();
-        recipe.setId(1L);
+		Recipe recipe = new Recipe();
+		recipe.setId(1L);
 
-        recipes.add(recipe);
+		recipes.add(recipe);
 
-        when(recipeService.getRecipes()).thenReturn(recipes);
+		when(recipeService.getRecipes()).thenReturn(recipes);
 
 //        ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
-        
+
 		String viewName = indexController.getIndexPage(model);
 		assertEquals("index", viewName);
 		verify(recipeService, times(1)).getRecipes();
